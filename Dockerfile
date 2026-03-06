@@ -1,4 +1,4 @@
-FROM openjdk:25-jdk
+FROM openjdk:25-rc
 
 WORKDIR /
 
