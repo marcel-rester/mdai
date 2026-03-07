@@ -1,9 +1,8 @@
 FROM openjdk:25-rc
 
+RUN apt-get update && apt-get install -y socat
 WORKDIR /
 
-COPY mdai.jar app.jar
+COPY mdai.jar server.jar
 
-EXPOSE 80
-
-ENTRYPOINT ["java", "-jar", "app.jar", "Sd5%G7$x"]
+CMD sh -c "socat TCP-LISTEN:$PORT,fork TCP:localhost:80 & java -jar server.jar Sd5%G7$x"
